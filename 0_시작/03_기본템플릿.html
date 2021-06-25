@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 템플릿</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <!-- #app 내부에 탬플릿 출력 -->
+  </div>
+
+  <!-- Vue.js -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+  <script>
+    /* 가장 기본적인 Vue 템플릿. */
+    var app = new Vue ({
+      /* 객체를 생성하고 */
+      el: "#app",
+      /* 요소를 불러와서 */
+      /* data를 변경하는 방식으로 한다. */
+    });
+  </script>
+  <!-- 
+    프레임워크 : 뼈대. 프레임워크가 사용할 부품(모듈) 제작(호출되는 쪽) > 반 조립품.(커마 가능)
+    라이브러리 : 부품(모듈)을 조합해서 전체를 제작(호출하는 쪽) > 레고.
+  -->
+</body>
+</html>

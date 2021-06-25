@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트 장식자 - .stop</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <div v-on:click='handler("div1")'>
+      div1
+      <!-- .stop : event.stopPropagation()을 호출하여 이벤트 버블링 방지 -->
+      <a href="#top" v-on:click.stop='handler("div2")'>div2</a>
+    </div>
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script>
+      new Vue({
+        el: '#app',
+        methods: {
+          handler: function (comment){
+            console.log(comment);
+          }
+        }
+      });
+    </script>
+</body>
+</html>

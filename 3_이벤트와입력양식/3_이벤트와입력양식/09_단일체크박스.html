@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>단일체크</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <label>
+      <!--
+        v-model
+        체크박스의 true는 체크 된 상태를 의미하고, 체크 해제를 하면 값이 false로 바뀌고,
+        출력되는 val도 false로 바뀌게 된다. > 양방향 데이터 동기화.
+      -->
+      <input type="checkbox" v-model='val'> {{ val }}
+    </label>
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script>
+      new Vue ({
+        el: '#app',
+        data: {
+          val: true
+        }
+      });
+    </script>
+</body>
+</html>

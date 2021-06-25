@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue.js 없이 이벤트 핸들</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <!-- jQuery 와 Vue를 혼용해서 사용할 수 있게된다. -->
+    <input v-on:input="handleInput" id="message">
+    <button data-update='jQuery!'>jQuery로 변경</button>
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <!-- jQuery 1.12.4 -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.4.1/jquery-migrate.min.js'></script>
+    
+    <script>
+      $(document).on('click', '[data-update]', function () {
+        $('#message').val($(this).attr('data-update'));
+        /* 입력 값을 변경했다면 이벤트 발생 */
+        $('#message')[0].dispatchEvent( new Event('input'));
+        /* 입력값이 변경된다면 이벤트를 발생. */
+
+      });
+
+      new Vue ({
+        el: '#app',
+        methods: {
+          handleInput: function ( event ) {
+            console.log(event.target.value);
+          }
+        },
+      });
+    </script>
+</body>
+</html>

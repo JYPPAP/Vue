@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>동영상 재생 조작</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <!-- 동영상 1 -->
+    <button v-on:click="video1=true">재생</button>
+    <button v-on:click="video1=false">중지</button>
+    <video src="http://wooreeweb.com/media/movie.mp4" v-video="video1"></video>
+    <!-- 동영상 2 -->
+    <button v-on:click="video2=true">재생</button>
+    <button v-on:click="video2=false">중지</button>
+    <video src="http://wooreeweb.com/media/movie1.mp4" v-video="video2"></video>
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script>
+      var app = new Vue({
+        el: '#app',
+        data: {
+          video1: false,
+          video2: false
+        },
+        directives: {
+          video(el, binding){
+            binding.value ? el.play() : el.pause()
+          }
+        }
+      })
+    </script>
+</body>
+</html>

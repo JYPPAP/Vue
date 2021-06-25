@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사용자정의 디렉티브 사용법</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-focus>
+  </div>
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script>
+      var app = new Vue({
+        el: '#app',
+        directives: {
+          focus: {
+            // 연결되어 있는 요소가 DOM에 추가될 때
+            inserted: function (el){
+              el.focus()
+            }
+          }
+        }
+      });
+      Veu.directive('focus', {
+        inserted: function (el) {
+          el.focus()
+        }
+      });
+    </script>
+</body>
+</html>

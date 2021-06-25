@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>입력 양식 감시와 API로 데이터 가져오기</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <select v-model="current">
+      <option v-for='topic in topics' v-bind:value="topic.value">
+        {{ topic.name }}
+      </option>
+    </select>
+    <div v-for="item in list">{{ item.full_name }}</div>
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js'></script>
+    <script>
+      var app = new Vue ({
+        el: '#app',
+        data: {
+          list: [],
+          current: '',
+          topics: [
+            {value: 'vue', name: 'Vue.js'},
+            {value: 'jQuery', name: 'jQuery'}
+          ]
+        },
+        watch: {
+          current: function(val){
+            //깃허브 API에서 토픽 리포지토리 검색
+            axios.get('https://api.github.com/search/repositories', {
+              params: {
+                q: 'topic:' + val
+              }
+            }).then(function(response) {
+              this.list = response.data.items
+            }.bind(this))
+          }
+        }
+      });
+    </script>
+</body>
+</html>

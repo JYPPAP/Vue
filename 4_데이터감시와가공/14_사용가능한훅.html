@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사용 가능한 훅</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script>
+      Vue.directive('example', {
+        // 디렉티브가 처음 요소와 연결될 때
+        bind: function(el, binding) {
+          console.log('v-example bind')
+        },
+        // 연결된 요소가 부모 노드에 삽입될 때
+        inserted: function(el, binding) {
+          console.log('v-example inserted')
+        },
+        update: function(el, binding) {
+          console.log('v-example update')
+        },
+        componentUpdated: function(el, binding) {
+          console.log('v-example componentUpdated')
+        },
+        unbind: function(el, binding) {
+          console.log('v-example unbind')
+        },
+      });
+    </script>
+</body>
+</html>

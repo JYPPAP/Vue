@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>산출속성캐시</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <p>산출 속성</p>
+    <ol>
+      <li>{{ computedData }}</li>
+      <li>{{ computedData }}</li>
+    </ol>
+    <p>메서드</p>
+    <ol>
+      <li>{{ methodsData() }}</li>
+      <li>{{ methodsData() }}</li>
+    </ol>
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script>
+      var app = new Vue ({
+        el: '#app',
+        computed: {
+          computedData: function (  ) {
+            return Math.random()
+          }
+        },
+        methods: {
+          methodsData: function (  ) {
+            return Math.random()
+          }
+        }
+      });
+    </script>
+</body>
+</html>

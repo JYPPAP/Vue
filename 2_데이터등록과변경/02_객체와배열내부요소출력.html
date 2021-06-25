@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체와 배열의 내부 요소 출력</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <!-- 객체 속성 -->
+    <p>{{msg.value}}</p>
+    <!-- 문자열 길이 -->
+    <p>{{ msg.value.length }}</p>
+    <!-- 리시트 내부 요소 -->
+    <p>{{ list[2] }}</p>
+    <!-- 속성 조합 -->
+    <p>{{ list[num] }}</p>
+  </div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js' integrity='sha512-deBbW1lpMT6h3gvOzmeMPft4pf9CMGjCKc5jSNq2pMSjtkMPuELbd4N3LKXVq/t1t6qco4q3u/XguyqGqlOMjA==' crossorigin='anonymous'></script>
+  <script>
+    var app = new Vue ({
+      el: '#app',
+      data: {
+        // 객체 데이터
+        msg: {
+          value: 'Vue.js!'
+        },
+        list: ['사과', '배', '딸기', '바나나'],
+
+        num: 1
+      }
+    });
+  </script>
+</body>
+</html>

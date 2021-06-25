@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM 직접 참조 - $el 과 $refs</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <button v-on:click='handleClick'>카운트</button>
+    <button v-on:click='show=!show'>표시 여부</button>
+    <span ref='count' v-if='show'>0</span>
+  </div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js' integrity='sha512-deBbW1lpMT6h3gvOzmeMPft4pf9CMGjCKc5jSNq2pMSjtkMPuELbd4N3LKXVq/t1t6qco4q3u/XguyqGqlOMjA==' crossorigin='anonymous'></script>
+  <script>
+    var app = new Vue ({
+      el: '#app',
+      mounted: function() {
+        console.log( this.$el);
+        console.log( this.$refs.count);
+      },
+      data: {
+        show: true
+      },
+      methods: {
+        handleClick(){
+          var count = this.$refs.count;
+          if( count ){
+            count.innerText = parseInt(count.innerText, 10) + 1
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>라디오버튼</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <!--
+      라디오 버튼은 name를 똑같이 지정한 상태라면 1개만 체크되게 된다.
+      상태를 보니 vmodel이 name의 역할을 하고 있는것 같다.
+    -->
+    <label><input type="radio" value='a' v-model='val'>A</label>
+    <label><input type="radio" value='b' v-model='val'>B</label>
+    <label><input type="radio" value='c' v-model='val'>C</label>
+    <p>{{ val }}</p>
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          val: ''
+        }
+      });
+    </script>
+</body>
+</html>

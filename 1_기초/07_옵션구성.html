@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>옵션 구성</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <!-- <div id="app">
+    <p>{{ msg }}</p>
+  </div> -->
+
+  <script>
+    var app = new Vue({
+      /* 마운트할 요소
+      애플리케이션 인스턴스를 적용할 요소(선택자)
+       */
+      el: '#app',
+
+      /* 애플리케이션에서 사용할 데이터
+      일반적으로 객체나 배열로 지정
+       */
+      data: {
+        msg: 'Vue.js'
+      },
+
+      /* 산출(계산) 속성
+      data와 유사하게 함수로 인해 산출되는 데이터
+       */
+      computed: {
+        comMsg: function (){
+          return this.msg + '!!'
+        }
+      },
+
+      created: function () {
+        /* 인스턴스의 생성과 초기화가 종료되었을 때 */
+        console.log('created')
+      },
+
+      /* 애플리케이션에서 사용할 메소드 */
+      methods: function (){
+        /* 처리할 내용 */
+      }
+
+    });
+  </script>
+</body>
+</html>

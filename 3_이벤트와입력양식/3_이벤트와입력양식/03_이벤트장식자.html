@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트 장식자</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <!-- .right: 마우스 오른쪽 버튼을 눌렀을 때에만 핸들러 호출 -->
+    <div v-on:click.right='handler'>example</div>
+    <!-- 마우스 오른쪽 버튼을 눌렀을 때 컨텍스트 메뉴가 출력되지 않음 -->
+    <div v-on:click.right.prevent='handler'>example</div>
+    <!--
+      .stop을 쓰면 이벤트 버블링을 막아주는 효과를 낸다.
+      .prevent를 쓰면 e.preventDefault를 쓰는 효과를 낸다.
+      
+    -->
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script>
+      new Vue ({
+        el: '#app',
+        methods: {
+          handler: function (comment) {
+            console.log(comment);
+          }
+        }
+      });
+    </script>
+</body>
+</html>

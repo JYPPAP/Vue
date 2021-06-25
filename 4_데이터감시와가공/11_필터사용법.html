@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>필터 사용 방법</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    {{ price | localeNum }} 원
+    <!-- 천단위 구분기호가 포함된 숫자를 리턴 받음 -->
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script>
+      var app = new Vue({
+        el: '#app',
+        data: {
+          price: 19800
+        },
+        filters: {
+          localeNum: function(val) {
+            return val.toLocaleString()
+          }
+        }
+      });
+    </script>
+</body>
+</html>

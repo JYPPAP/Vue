@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스무스 스크롤 구현</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/12.1.5/js/smooth-scroll.min.js'></script>
+</head>
+<body>
+  <div id="app">
+    <div class="content">...</div>
+    <div v-on:click="scrollTop" > TOP </div>
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script>
+      var scroll = new SmoothScroll()
+      new Vue ({
+        el: '#app',
+        methods: {
+          scrollTop: function (  ) {
+            scroll.animateScroll(0)
+          }
+        },
+      });
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>입력 양식 입력 추출</title>
+</head>
+<body>
+  <div id="app">
+    <input v-bind:value='message' v-on:change='handleInput'>
+    <!-- 
+      v-on:change
+      어떤 이벤트가 발생할 때 change를 실행?
+    -->
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script>
+      new Vue ({
+        el: '#app',
+        data: {
+          message: 'Vue.js',
+        },
+        methods: {
+          handleInput: function (event) {
+            // 할당 전에 어떤 처리하기
+            this.message = event.target.value
+            /* Vue.js라는 메세지가 저장되어있는데 그 메세지에 이벤트가 발생하면 
+            이벤트의 타겟 값을 메세지에 저장 */
+            
+          }
+        }
+      });
+    </script>
+</body>
+</html>

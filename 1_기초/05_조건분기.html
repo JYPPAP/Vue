@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>조건 분기</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <button v-on:click='show=!show'>변경하기</button>
+    <p v-if='show'>Welcome Vue.js</p>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js' integrity='sha512-deBbW1lpMT6h3gvOzmeMPft4pf9CMGjCKc5jSNq2pMSjtkMPuELbd4N3LKXVq/t1t6qco4q3u/XguyqGqlOMjA==' crossorigin='anonymous'></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        show: true
+      }
+    });
+  </script>
+</body>
+</html>

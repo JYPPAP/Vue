@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트 장식자 - .prevent</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <div v-on:click='handler("div1")'>
+      div1
+      <a href="#top" v-on:click.prevent='handler("div2")'>div2</a>
+      <!-- 이벤트 버블링은 일어나지만, a태그의 자체 이벤트는 발생하지 않는다. -->
+    </div>
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script>
+      new Vue({
+        el: '#app',
+        methods: {
+          handler: function(comment){
+            console.log(comment);
+          }
+        }
+      });
+    </script>
+</body>
+</html>

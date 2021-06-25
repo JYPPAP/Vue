@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>요소의 반복 렌더링</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="item in list"
+          v-bind:key='item.id'
+          v-bind:class='{strong: item.hp > 300 }'>
+        ID.{{ item.id }} {{ item.name }} HP.{{ item.hp }}
+        <span v-if='item.hp > 300'>강하다!!</span>
+      </li>
+    </ul>
+  </div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js' integrity='sha512-deBbW1lpMT6h3gvOzmeMPft4pf9CMGjCKc5jSNq2pMSjtkMPuELbd4N3LKXVq/t1t6qco4q3u/XguyqGqlOMjA==' crossorigin='anonymous'></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        list: [
+          { id: 1, name: '슬라임', hp: 100 },
+          { id: 2, name: '고블린', hp: 300 },
+          { id: 3, name: '오크', hp: 500 },
+        ]
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>클래스와 스타일 데이터 바인딩</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <button v-on:click='isActive=!isActive'>isActive 변경</button>
+    <p v-bind:class='{ child: isChild, "is-active": isActive}' class="item"> 동적 클래스</p>
+    <p v-bind:style='{ color: textColor, backgroundColor: bgColor }' class="item"> 동적 스타일</p>
+  </div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js' integrity='sha512-deBbW1lpMT6h3gvOzmeMPft4pf9CMGjCKc5jSNq2pMSjtkMPuELbd4N3LKXVq/t1t6qco4q3u/XguyqGqlOMjA==' crossorigin='anonymous'></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        isChild: true,
+        isActive: true,
+        textColor: 'red',
+        bgColor: 'lightgray'
+      }
+    });
+  </script>
+</body>
+</html>

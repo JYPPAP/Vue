@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>다중 선택</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <!--
+      여러개를 동시에 받야야 하기 때문에 아래에서 빈 배열을 선언했다.
+      드래그를 하거나, 컨트롤을 이용해서 선택하면 여러개를 선택할 수 있게 된다.
+    -->
+    <select v-model="val" multiple>
+      <option value="a">A</option>
+      <option value="b">B</option>
+      <option value="c">C</option>
+    </select>
+    <p>{{ val }}</p>
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          val: []
+        },
+      });
+    </script>
+</body>
+</html>

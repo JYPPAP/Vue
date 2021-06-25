@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카운트</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <p>{{ count }} 번 클릭함</p>
+    <!-- 버튼 클릭시 inc 메소드 호출 -->
+    <button v-on:click='inc'>COUNT</button>
+  </div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js' integrity='sha512-deBbW1lpMT6h3gvOzmeMPft4pf9CMGjCKc5jSNq2pMSjtkMPuELbd4N3LKXVq/t1t6qco4q3u/XguyqGqlOMjA==' crossorigin='anonymous'></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        count: 0
+      },
+      methods: {
+        /* 버튼 클릭시 핸들러 */
+        inc: function (){
+          this.count += 1     /* 다시 할당하는 처리만 실행 */
+        }
+      }
+    });
+  </script>
+</body>
+</html>

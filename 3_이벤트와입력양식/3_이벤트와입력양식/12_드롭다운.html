@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>드롭다운</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <select v-model="val">
+      <!--
+        첫 번째는 안내문이다.
+        안내문이기 때문에 disabled를 줬다.
+        양방향으로 연동을 했기 때문에 model을 이용해서 양방향으로 양식에 따라서 바뀌는 것만 있을 뿐 연동되는 것을 보면 된다.
+      -->
+      <option disabled='disabled'>선택해 주세요.</option>
+      <option value="a">A</option>
+      <option value="b">B</option>
+      <option value="c">C</option>
+    </select>
+    <p>{{ val }}</p>
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script>
+      new Vue ({
+        el: '#app',
+        data: {
+          val: ''
+        },
+      });
+    </script>
+    el: '',
+    
+</body>
+</html>

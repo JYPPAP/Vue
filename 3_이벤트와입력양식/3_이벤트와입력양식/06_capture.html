@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트 장식자 - .capture</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <!-- .capture : 캡처 모드로 이벤트 핸들링.
+      캡처 : 루트 요소에서 이벤트 타겟 요소까지 DOM 트리를 찾아내려가는 것
+      버블링 보드의 이벤트보다 먼저 이벤트 발생.
+    -->
+    <div v-on:click.capture='handler("div1")'>
+      <!--
+        capture : 버블링의 반대 > 부모요소에서 자식요소로 내려감.
+        1찍으면 1만 나오는데
+        2찍으면 1, 2 의 순서로 나오고
+        3찍으면 1, 3, 2 의 순서로 나온다.
+        버블링 상태면
+        1찍으면 1만
+        2찍으면 2, 1 의 순서로
+        3찍으면 3, 2, 1의 순서로 나온다.
+        캡처를 적은 이벤트 > 버튼을 클릭 한 자식요소 > 버블링
+        의 순서로 출력되고
+        사용하는 이유는 이벤트의 우선순위를 정하기 위해서 사용한다.
+        > 순서 정하기
+      -->
+      div1
+      <div v-on:click="handler(div2')">
+        div2
+        <div v-on:click="handler('div3')">
+          div3
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script>
+      new Vue({
+        el: '#app',
+        methods: {
+          handler: function (comment){
+            console.log(comment);
+          }
+        }
+      });
+    </script>
+</body>
+</html>
