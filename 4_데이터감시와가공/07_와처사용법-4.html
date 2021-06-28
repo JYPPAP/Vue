@@ -18,13 +18,18 @@
       var app = new Vue ({
         el: '#app',
         created: function (  ) {
+          /* 인스턴스 메소드 등록 */
           var wt = this.$watch('value', function (newVal, oldVal) {
             // ...
           }, { // 옵션 등록
-            immediate: true,
-            deep: true
+            immediate: true, // 지금 바로 확인을 할 것인지.
+            deep: true // 하위 계층까지 확인을 할 것인지.
           })
         }
+        /* 와처 제거
+        var unwatch = this.$watch('value', handler)
+        unwatch()
+         */
       });
     </script>
 </body>

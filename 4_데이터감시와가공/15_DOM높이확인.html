@@ -10,6 +10,7 @@
 <body>
   <div id="app">
     <button v-on:click="list.push(list.length+1)">추가</button>
+    <!-- 목록을 하나씩 추가 -->
     <ul ref="list">
       <li v-for="item in list">{{ item }}</li>
     </ul>
@@ -26,7 +27,7 @@
         watch: {
           list: function() {
             // 변경 후 ul 태그의 높이를 추출할 수 없음
-            console.log('기본 출력:', 'this.$refs.list.offsetHeight');
+            console.log('기본 출력:', this.$refs.list.offsetHeight)
             // nextTick으로 높이 추출 가능
             this.$nextTick( function () {
               console.log('nextTick:', this.$refs.list.offsetHeight)

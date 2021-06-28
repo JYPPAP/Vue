@@ -10,6 +10,10 @@
 <body>
   <div id="app">
     180도는 {{ 180 | radian | round }} 라디안 입니다.
+    <!--
+    {{ value | filter1 | filter2 }}
+    value에 대해 filter을 필터링 한 후 결과를 매개변수로 사용하여 filter2를 호출
+    -->
   </div>
 
     <!-- Vue.js 2.6.9-->
@@ -18,9 +22,12 @@
       var app = new Vue({
         el: '#app',
         filters: {
+          /* 소수점 이하 2번째 자리까지 끊는 필터 */
           round: function(val){
             return Math.round(val * 100) / 100
+            /* ()안의 * 100이 소수점 2번째 자리까지고 그래서 끝나고 나누기 100을 해 줬다. */
           },
+          /* 도 단위를 라디안 단위로 변환하는 필터 */
           radian: function(val){
             return val * Math.PI / 180
           }

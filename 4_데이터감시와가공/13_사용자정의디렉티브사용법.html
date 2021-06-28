@@ -10,22 +10,27 @@
 <body>
   <div id="app">
     <input type="text" v-focus>
+    <!-- 자동으로 초점이 맞춰진다. -->
   </div>
     <!-- Vue.js 2.6.9-->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
     <script>
+      // 로컬 등록 : 특정 컴포넌트 내부에서만 사용.
       var app = new Vue({
         el: '#app',
         directives: {
           focus: {
             // 연결되어 있는 요소가 DOM에 추가될 때
             inserted: function (el){
+              // 해당 엘리먼트에 자동으로 초점.
               el.focus()
             }
           }
         }
       });
-      Veu.directive('focus', {
+
+      // 전역 등록
+      Vue.directive('focus', {
         inserted: function (el) {
           el.focus()
         }

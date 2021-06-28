@@ -11,10 +11,12 @@
   <div id="app">
     <select v-model="current">
       <option v-for='topic in topics' v-bind:value="topic.value">
+        <!-- 값은 value로 가져오고 출력은 name이 출력된다. -->
         {{ topic.name }}
       </option>
     </select>
     <div v-for="item in list">{{ item.full_name }}</div>
+    <!-- div를 리스트의 갯수만큼 만들기. -->
   </div>
 
     <!-- Vue.js 2.6.9-->

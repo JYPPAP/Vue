@@ -23,6 +23,7 @@
         },
         watch:{
           value: _.debounce(function( newVal ) {
+            /* lodash를 사용하기 위해 앞에 _.을 붙임. */
             console.log(newVal);
           },
           // value의 변화가 끝나고 500밀리초 동안 대기
