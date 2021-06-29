@@ -21,6 +21,7 @@
         template: '<div class="my-component">\
         <p>이름.{{ name }} HP.{{ hp }}</p>\
         <p>이름 <input size="5" v-model.number="localHp"></p>\
+        <p>HP <input size="5" v-model.number="localHp"></p>\
         </div>',
         props: {
           name: String,
@@ -29,9 +30,11 @@
         computed: {
           // 산출 속성의 세터와 게터를 통해 v-model 사용
           localName: {
+            // 현재 이름을 가져오고
             get: function () {
               return this.name
             },
+            // 가져온 매개변수의 값을 지정.
             set: function (val) {
               this.$emit('update:name', val)
             }

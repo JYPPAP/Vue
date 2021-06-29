@@ -24,12 +24,14 @@
         template: '<li>{{ name }} HP.{{ hp }}\
           <button v-on:click="doAttack">공격하기</button></li>',
           props: {
+            // 데이터 타입을 선언.
             id: Number,
             name: String,
             hp: Number
           },
           methods: {
             doAttack: function (){
+              // 클릭한 버튼의 아이디 값을 전달.
               this.$emit('attack', this.id)
             }
           }
@@ -50,7 +52,7 @@
             var item = this.list.find(function (el) {
               return el.id === id
             })
-
+            // 아이템이 존재하고, 그 아이템의  hp가 0보다 크면. 현재 값에서 70을 빼줘라.
             if (item !== undefined && item.hp > 0) item.hp -= 70
           }
         }

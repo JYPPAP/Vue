@@ -10,6 +10,7 @@
 <body>
   <div id="app">
     <ul>
+      <!-- vfor : 반복문을 만들겠다. -->
       <comp-child v-for="item in list"
         vbind:key="item.id"
         vbind:name="item.name"
@@ -21,7 +22,9 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
     <script>
       Vue.component('comp-child', {
+        // 가져오는 형태를 지정하고
         template: '<li>{{ name }} HP.{{ hp }}</li>',
+        // 가져올 요소를 지정?
         props: ['name', 'hp']
       });
 

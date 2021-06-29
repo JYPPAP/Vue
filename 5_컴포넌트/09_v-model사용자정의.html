@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
+  <!-- 이벤트가 발생하는 것을 직접 만들어 보는 것. -->
   <div id="app">
 
   </div>
@@ -16,15 +17,17 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
     <script>
       Vue.component('my-calendar', {
+        /* my-calender 라는 컴포넌트 만들고 */
         model: {
           // 현재 값을 value가 아니라 current로 할당하고 싶은 경우
           prop: 'current',
+          // 이벤트를 change로 사용하고 싶은 경우
           event: 'change'
         },
         props: {
           current: String
         },
-        Created: function() {
+        created: function() {
           this.$emit('change', '2021-01-01')
         }
       });

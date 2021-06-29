@@ -22,9 +22,10 @@
           }
         }
       }
-
+      // 변경되는 부분만 동적 컴포넌트에 따로 만들어서 사용하는 것.
       Vue.component('my-component-a', {
         mixins: [mixin],  //믹스인 등록
+        
         template: '<p>MyComponentA</p>'
       });
       Vue.component('my-component-b', {

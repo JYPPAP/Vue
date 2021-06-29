@@ -12,6 +12,9 @@
     <button v-on:click='current="comp-board"'>메세지 목록</button>
     <button v-on:click='current="comp-form"'>입력 양식</button>
 
+    <!--
+      인스턴스는 한번 쓰고 나면 끝나는데 keep-alive를 사용하면 남길 수 있다.
+    -->
     <keep-alive>
       <div v-bind:is='current'></div>
     </keep-alive>
@@ -39,7 +42,12 @@
       var app = new Vue ({
         el: '#app',
         data: {
+          /* 기본적으로 comp-board가 실행되도록 만들어져 있다. */
           current: 'comp-board' // 동적으로 변경
+          /*
+          내장 컴포넌트인 keep-alive를 이용하면 
+          입력 양식에 입력하고, 메세지로 넘어가면 삭제되는 부분을 보존할 수 있게 된다.
+          */
         }
       });
     </script>

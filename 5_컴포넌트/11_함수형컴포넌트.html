@@ -16,9 +16,11 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
     <script>
       Vue.component('functional-component', {
-        functional: true,
+        // 함수형 컴포넌트라는 것을 알려줌.
+        functional: true, 
         render: function (createElement, context) {
           return createElement('div', context.props.message)
+          // 작성된 내용의 태그는 div이고 내부의 메세지는 string 형태로 생성될 것이다?
         },
         props: {
           message: String

@@ -9,6 +9,10 @@
 </head>
 <body>
   <comp-child>
+    <!--
+      슬롯(slot)
+      - 부모가 되는 컴포넌트 
+    -->
     <header slot='header'>
       Hello Vue.js!
     </header>
@@ -22,7 +26,7 @@
       </header>
     </slot>
     <div class="content">
-      slot="디폴트 콘텐츠"
+      <slot>디폴트 콘텐츠</slot>
     </div>
     <slot name='footer'>
       <!-- 없다면 아무 것도 출력하지 않습니다. -->
