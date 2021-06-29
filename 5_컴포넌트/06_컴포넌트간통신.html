@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>컴포넌트 간 통신</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    부모 자식 관계가 아닌 경우 컴포넌트 사이의 통신
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script>
+      var bus = new Vue ({
+        data: {
+          count: 0
+        }
+      });
+
+      Vue.component('component-b', {
+        template: '<p> bus: {{ bus.count }} </p>',
+        computed: {
+          // bus 데이터를 산출 속성으로 사용
+          bus: function() {
+            return bus.$data
+          }
+        },
+        created: function () {
+          bus.$on('bus-event', function() {
+            // bus-event 이벤트가 발생할 때 처리
+            // 익명 함수 내부의 this는 bus의 인스턴스
+            this.count++
+          });
+        }
+      });
+    </script>
+</body>
+</html>

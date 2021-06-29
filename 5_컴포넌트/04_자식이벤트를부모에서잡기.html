@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자식 이벤트를 부모에서 잡기</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <comp-child v-on:childs-event='parentsMethod'>ㅁ</comp-child>
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script>
+      Vue.component('comp-child', {
+        template: '<button v-on:click="handleClick">이벤트</button>',
+        methods: {
+          // 버튼 클릭 이벤트 핸들러로 childs-event 실행
+          handleClick: function() {
+            this.$emit('childs-event')
+          }
+        }
+      });
+
+      // 부모 컴포넌트 이벤트
+      new Vue ({
+        el: '#app',
+        methods: {
+          // childs-event가 실행되었을 경우 실행
+          parentsMethod: function() {
+            alert('자식에서 전달받은 이벤트!')
+          }
+        }
+      });
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>상태 유지 - keep-alive</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <button v-on:click='current="comp-board"'>메세지 목록</button>
+    <button v-on:click='current="comp-form"'>입력 양식</button>
+
+    <keep-alive>
+      <div v-bind:is='current'></div>
+    </keep-alive>
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script>
+      // 자식 컴포넌트
+      // 메세지 목록 전용 컴포넌트
+      Vue.component('comp-board', {
+        template: '<div>Message Board</div>',
+      });
+      // 입력 양식 전용 컴포넌트
+      Vue.component('comp-form', {
+        template: '<div>Form<textarea v-model="message"></textarea></div>',
+        data: function () {
+          return {
+            message: ''
+          }
+        }
+      });
+
+      /* 부모 컴포넌트 */
+      var app = new Vue ({
+        el: '#app',
+        data: {
+          current: 'comp-board' // 동적으로 변경
+        }
+      });
+    </script>
+</body>
+</html>

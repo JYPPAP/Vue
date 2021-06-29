@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>컴포넌트 간의 통신</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <h3>프로퍼티로 문자열 전달</h3>
+    <comp-child val="자식A"></comp-child>
+    <comp-child val="자식B"></comp-child>
+    <hr>
+    <h3>프로퍼티로 데이터 전달</h3>
+    <comp-child val="valueA"></comp-child>
+    <comp-child val="valueB"></comp-child>
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script>
+      Vue.component('comp-child', {
+        template: '<p>{{ val }}</p>',
+        props: ['val']
+      });
+      new Vue ({
+        el: '#app',
+        data: {
+          valueA: '자식A',
+          valueB: '자식B'
+        },
+      });
+    </script>
+</body>
+</html>

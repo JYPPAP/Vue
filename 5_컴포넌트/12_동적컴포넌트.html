@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>동적 컴포넌트</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div id="app">
+    <button v-on:click='current^=1'>컴포넌트변경</button>
+    <div v-bind:is='component'></div>
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script>
+      /* 자식 컴포넌트 */
+      // 컴포넌트 A
+      Vue.component('my-component-a', {
+        template: '<div class="my-component-a">component A</div>'
+      });
+      Vue.component('my-component-b', {
+        template: '<div class="my-component-b">component B</div>'
+      });
+
+      /* 부모 컴포넌트 */
+      new Vue({
+        el: '#app',
+        data: {
+          // 컴포넌트 리스트
+          componentTypes: ['my-component-a', 'my-component-b'],
+          current: 1
+        },
+        computed: {
+          component: function() {
+            // current와 일치하는 index 컴포넌트 사용
+            return this.componentTypes[this.current]
+            // `return current ? 'my-component-b' : 'my-component-a'` 사용 가능
+          }
+        }
+      });
+    </script>
+</body>
+</html>
