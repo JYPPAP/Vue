@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>트랜지션</title>
+  <link rel="stylesheet" href="../css/main.min.css">
+  <style>
+    /* 요소가 추가/삭제/정렬 순서 변경으로 요소가 움직(이동)일 때 
+    해당 요소에 .v-move 트랜지션 클래스가 적용된다. 
+    
+    1초 동안 요소 이동 */
+    .v-move {
+      transition: transform 10s;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <p><button v-on:click='order=!order'>변경</button></p>
+    <!-- transition-group으로 사용할 태그는 속성으로 지정 -->
+    <transition-group tag='ul' class='list'>
+      <li v-for='item in sortedList' v-bind:key='item.id'>
+        {{ item.name }} {{ item.price }} 원
+      </li>
+    </transition-group>
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <!-- Lodash.js 4.17.21 -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js'></script>
+    <script>
+      new Vue ({
+        el: '#app',
+        data: {
+          order: false,
+          list: [
+            { id: 1, name: '사과', price: 1000 },
+            { id: 2, name: '바나나', price: 4000 },
+            { id: 3, name: '수박', price: 5000 },
+            { id: 4, name: '딸기', price: 3000 },
+          ]
+        },
+        computed: {
+          // order 값에 따라 리스트의 순서를 반전하는 산출 속성
+          sortedList: function () {
+            // Lodash의 orderBy 메서드 사용
+            return _.orderBy(this.list, 'price', this.order ? 'desc' : 'asc')
+          }
+        }
+      });
+    </script>
+</body>
+</html>

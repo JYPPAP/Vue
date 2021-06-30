@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>트랜지션</title>
+  <link rel="stylesheet" href="../css/main.min.css">
+  <style>
+    .trans {
+      width: 50px;
+      height: 50px;
+      background-color: deeppink;
+      color: #fff;
+      text-align: center;
+      line-height: 50px;
+      font-size: 30px;
+    }
+    .v-enter-active {
+      transition: opacity 1s;
+    }
+
+    /* 딜레이(0.2s)를 부여하여 문자 투명도 조정 */
+    .v-leave-active {
+      transition: opacity 0.8s ease .2s;
+      position: absolute;
+    }
+    .v-enter, .v-leave-to {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <p><button v-on:click='count++'>변경</button></p>
+    <div class="trans">
+      <transition>
+        <div v-bind:key='count'>{{ count }}</div>
+      </transition>
+    </div>
+  </div>
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script>
+      var app = new Vue ({
+        el: '#app',
+        data: {
+          count: 0
+        }
+      });
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>트랜지션</title>
+  <link rel="stylesheet" href="../css/main.min.css">
+  <style>
+    /* 1초 동안 투명도 변화 */
+    .v-enter-active, .v-leave-active {
+      transition: opacity 1s;
+    }
+    /* 더 이상 보이게 되지 않았을 때의 투명도 */
+    .v-enter, .v-leave-to {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <p><button v-on:click='show=!show'>변경</button></p>
+    <transition>
+      <div v-show='show'>
+        트랜지션 요소
+      </div>
+    </transition>
+  </div>
+
+    <!-- Vue.js 2.6.9-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js'></script>
+    <script>
+      var app = new Vue({
+        el: '#app',
+        data: {
+          show: true
+        }
+      });
+    </script>
+</body>
+</html>
