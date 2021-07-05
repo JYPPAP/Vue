@@ -25,9 +25,11 @@
     .v-enter-active, .v-leave-active, .v-move {
       transition: all 1s;
     }
+    /* 변경할 때 겹치게 보이기. */
     .v-leave-active {
       position: absolute;
     }
+    /* 바뀔때 색이 바뀌면서 올라감. */
     .v-enter, .v-leave-to {
       opacity: 0;
       background: #f9a3b1;

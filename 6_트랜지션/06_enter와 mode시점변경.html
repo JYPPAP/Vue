@@ -36,6 +36,7 @@
     <div class="trans">
       <h3>out-in</h3>
       <transition mode='out-in'>
+        <!-- enter가 끝나면 leave를 실행해라 > 동시처리를 막는 것.-->
         <div v-if='show' key='a'>TRUE</div>
         <div v-else key='b'>FALSE</div>
       </transition>
@@ -44,6 +45,7 @@
     <div class="trans">
       <h3>in-out</h3>
       <transition mode='in-out'>
+        <!-- leave가 끝나면 enter를 실행해라. -->
         <div v-if='show' key='a'>TRUE</div>
         <div v-else key='b'>FALSE</div>
       </transition>

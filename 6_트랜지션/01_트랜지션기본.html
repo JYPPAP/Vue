@@ -22,6 +22,7 @@
     <p><button v-on:click='show=!show'>변경</button></p>
     <transition>
       <div v-show='show'>
+        <!-- 자체적으로 클래스(-active)가 부여되었다가 없어졌다가 한다. -->
         트랜지션 요소
       </div>
     </transition>
@@ -33,6 +34,7 @@
       var app = new Vue({
         el: '#app',
         data: {
+          /* v-show='show' 로 넘어간다.*/
           show: true
         }
       });

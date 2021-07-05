@@ -26,6 +26,10 @@
     <transition>
       <div v-if='show' key='a'>TRUE</div>
       <div v-else key='b'>FALSE</div>
+      <!-- 변경을 할 때 위치가 아래에 나오기 때문에 겹치게 만들기 위해서 poa를 해서 겹치는 형태로
+        자연스럽게 전환이 될 수 있도록 만들었다.
+        p의 기본값인 스태틱만 유일하게 위치이동이 허용되지 않는다. 라는 것을 기억해야 한다.
+      -->
     </transition>
   </div>
 

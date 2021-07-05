@@ -20,6 +20,7 @@
   <div id="app">
     <p><button v-on:click='show=!show'>변경</button></p>
     <transition
+    <!-- 먼저 실행되고 나중에 실행되는 것을 순서대로 확인할 수 있게 만든 것. -->
       v-on:before-enter='beforeEnter'
       v-on:enter='enter'
       v-on:after-enter='afterEnter'
